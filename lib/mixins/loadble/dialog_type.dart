@@ -1,0 +1,5 @@
+
+enum DialogType {
+  success,
+  loading
+}
