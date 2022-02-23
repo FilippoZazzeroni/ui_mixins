@@ -6,13 +6,14 @@ import 'package:ui_mixins/mixins/loadble/loading_dialog.dart';
 
 class SuccessfulDialog extends LoadingDialog {
 
-  const SuccessfulDialog({Key? key}) : super(key: key);
+  const SuccessfulDialog({Key? key, required this.asset}) : super(key: key);
 
+  final Image asset;
 
   @override
   List<Widget> createChildren() {
     return [
-      Image.asset("assets/images/logo"),
+      asset,
       createLoadingText("Done", style: const TextStyle(color: Colors.black))
     ];
   }

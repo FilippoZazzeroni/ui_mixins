@@ -18,7 +18,7 @@ mixin Loadable {
   void _createLoadingDialog(BuildContext context, LoadingData data) {
 
     final factory = DialogFactory();
-    final dialog = factory.create(data.type);
+    final dialog = factory.create(data);
 
     showGeneralDialog(
       context: context,
