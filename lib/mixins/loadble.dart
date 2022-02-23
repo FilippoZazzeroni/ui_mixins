@@ -9,6 +9,10 @@ mixin Loadable {
   void showLoadingDialog(BuildContext context, LoadingData data) =>
       _createLoadingDialog(context, data);
 
+  void dismiss(BuildContext context) {
+    Navigator.pop(context);
+  }
+
   void _createLoadingDialog(BuildContext context, LoadingData data) {
     showGeneralDialog(
       context: context,
