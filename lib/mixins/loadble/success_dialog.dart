@@ -13,7 +13,9 @@ class SuccessfulDialog extends LoadingDialog {
   @override
   List<Widget> createChildren() {
     return [
-      asset,
+      SizedBox(
+          height: 100,
+          child: asset),
       createLoadingText("Done", style: const TextStyle(color: Colors.black))
     ];
   }
