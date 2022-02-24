@@ -14,7 +14,8 @@ class ErrorDialog extends LoadingDialog {
   List<Widget> createChildren() {
     return [
       const Icon(Icons.error, color: Colors.redAccent, size: 40,),
-      Text(data.text, style: data.style,)
+      const SizedBox(height: 20,),
+      Material(child: Text(data.text, style: data.style,))
     ];
   }
 }
