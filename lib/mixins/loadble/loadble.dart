@@ -4,7 +4,7 @@ library ui_mixins;
 import 'package:flutter/material.dart';
 import 'package:ui_mixins/mixins/loadble/dialog_factory.dart';
 import 'package:ui_mixins/mixins/loadble/loading_dialog.dart';
-import 'package:ui_mixins/mixins/loading_data.dart';
+import 'package:ui_mixins/mixins/loadble/loading_data.dart';
 
 mixin Loadable {
   /// Shows the loading dialog by presenting a dialog as a modal sheet with spinning indicator.

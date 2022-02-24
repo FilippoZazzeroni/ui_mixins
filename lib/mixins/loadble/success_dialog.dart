@@ -19,6 +19,4 @@ class SuccessfulDialog extends LoadingDialog {
       createLoadingText("Done", style: const TextStyle(color: Colors.black))
     ];
   }
-
-
 }

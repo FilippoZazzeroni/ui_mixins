@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:ui_mixins/mixins/loadble/dialog_type.dart';
 
 class LoadingData {
-  LoadingData({required this.style,required this.asset, required this.type});
+  LoadingData({required this.style,required this.asset, required this.type, required this.text});
 
   //
 
@@ -14,4 +14,6 @@ class LoadingData {
   final Image asset;
 
   final DialogType type;
+
+  final String text;
 }
