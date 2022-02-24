@@ -4,10 +4,13 @@ import 'package:ui_mixins/mixins/loadble/loadble.dart';
 import 'package:ui_mixins/mixins/loadble/loading_data.dart';
 
 void main() {
-  runApp(MaterialApp(home: MainView()));
+  runApp(const MaterialApp(home: MainView()));
 }
 
 class MainView extends StatelessWidget with Loadable {
+  const MainView({Key? key}) : super(key: key);
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
