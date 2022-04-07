@@ -6,7 +6,7 @@ import 'package:ui_mixins/mixins/sizeble.dart';
 import 'package:ui_mixins/mixins/transitionable.dart';
 
 void main() {
-  runApp(const MaterialApp(home: MainView()));
+  runApp(const MainView());
 }
 
 class MainView extends StatelessWidget with Loadable {
@@ -14,43 +14,46 @@ class MainView extends StatelessWidget with Loadable {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-            child: TextButton(
-                onPressed: () async {
-                  showLoadingDialog(
-                      context,
-                      LoadingData(
-                          type: DialogType.error,
-                          text: "errore",
-                          style: const TextStyle(color: Colors.black87),
-                          asset: Image.asset(
-                            "assets/images/logo.png",
-                            package: "ui_mixins",
-                          )));
 
-                  await Future.delayed(const Duration(seconds: 3));
-                  Navigator.pop(context);
-                  showLoadingDialog(
-                      context,
-                      LoadingData(
-                          text: "done",
-                          type: DialogType.success,
-                          style: const TextStyle(color: Colors.black87),
-                          asset: Image.asset(
-                            "assets/images/logo.png",
-                            package: "ui_mixins",
-                          )));
-                  await Future.delayed(const Duration(seconds: 3));
-                  Navigator.pop(context);
-                },
-                child: AnimatedWidget()),
-          )
-        ],
+    return MaterialApp(
+      home: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: TextButton(
+                  onPressed: () async {
+                    showLoadingDialog(
+                        context,
+                        LoadingData(
+                            type: DialogType.error,
+                            text: "errore",
+                            style: const TextStyle(color: Colors.black87),
+                            asset: Image.asset(
+                              "assets/images/logo.png",
+                              package: "ui_mixins",
+                            )));
+
+                    await Future.delayed(const Duration(seconds: 3));
+                    Navigator.pop(context);
+                    showLoadingDialog(
+                        context,
+                        LoadingData(
+                            text: "done",
+                            type: DialogType.success,
+                            style: const TextStyle(color: Colors.black87),
+                            asset: Image.asset(
+                              "assets/images/logo.png",
+                              package: "ui_mixins",
+                            )));
+                    await Future.delayed(const Duration(seconds: 3));
+                    Navigator.pop(context);
+                  },
+                  child: AnimatedWidget()),
+            )
+          ],
+        ),
       ),
     );
   }
