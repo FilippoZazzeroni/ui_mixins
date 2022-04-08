@@ -1,5 +1,6 @@
 
 import 'package:flutter/cupertino.dart';
+import 'package:ui_mixins/mixins/navigable/navigable_exception.dart';
 import 'package:ui_mixins/mixins/navigable/route_scope.dart';
 
 class NavigableRouter {
@@ -27,5 +28,11 @@ class NavigableRouter {
     _routes[scope] = namedRoutes;
   }
 
-  Map<String, Widget>? getScopedRoutes(NavigableRouteScope scope) => _routes[scope];
+  Map<String, Widget> getScopedRoutes(NavigableRouteScope scope) {
+    final scopedRoutes = _routes[scope];
+    if (scopedRoutes != null) {
+      return scopedRoutes;
+    }
+    throw NavigableException("NO_ROUTES_FOUND_FOR_THE_PASSED_SCOPE", "No routes found for the selected scope. Remember to set the route for the passed scope during app initialization via the NavigableRouter.instance.setRoute()");
+  }
 }
