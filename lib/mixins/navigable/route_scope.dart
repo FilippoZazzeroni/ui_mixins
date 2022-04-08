@@ -8,4 +8,7 @@ abstract class NavigableRouteScope {
 
   final String rawValue;
 
+  @override
+  int get hashCode => rawValue.hashCode;
+
 }
