@@ -11,7 +11,7 @@ class NavigableRouter {
 
   static final instance = NavigableRouter._internal();
 
-  final Map<NavigableRouteScope, Map<String, Widget>> _routes = {};
+  final Map<String, Map<String, Widget>> _routes = {};
 
   Map<String,Widget Function(BuildContext)> get routes {
     final dataToReturn = <String, Widget Function(BuildContext)>{};
@@ -25,11 +25,11 @@ class NavigableRouter {
   //
 
   void setRoutes(Map<String, Widget> namedRoutes, NavigableRouteScope scope) {
-    _routes[scope] = namedRoutes;
+    _routes[scope.rawValue] = namedRoutes;
   }
 
   Map<String, Widget> getScopedRoutes(NavigableRouteScope scope) {
-    final scopedRoutes = _routes[scope];
+    final scopedRoutes = _routes[scope.rawValue];
     if (scopedRoutes != null) {
       return scopedRoutes;
     }
