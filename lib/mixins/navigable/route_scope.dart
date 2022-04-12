@@ -2,7 +2,7 @@
 
 abstract class NavigableRouteScope {
 
-  NavigableRouteScope(this.rawValue);
+  const NavigableRouteScope(this.rawValue);
 
   //
 
