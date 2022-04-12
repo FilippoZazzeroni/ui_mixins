@@ -1,96 +1,43 @@
+import 'package:example/ui/views/loadble_view.dart';
+import 'package:example/ui/views/route_view/route_scopes_test.dart';
+import 'package:example/ui/views/route_view/route_view.dart';
 import 'package:flutter/material.dart';
-import 'package:ui_mixins/mixins/loadble/dialog_type.dart';
-import 'package:ui_mixins/mixins/loadble/loadble.dart';
-import 'package:ui_mixins/mixins/loadble/loading_data.dart';
-import 'package:ui_mixins/mixins/sizeble.dart';
-import 'package:ui_mixins/mixins/transitionable.dart';
+import 'package:ui_mixins/export.dart';
 
 void main() {
-  runApp(const MainView());
+  runApp(const _App());
 }
 
-class MainView extends StatelessWidget with Loadable {
-  const MainView({Key? key}) : super(key: key);
+
+class _App extends StatelessWidget {
+  const _App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    _setRoutesForScopes();
 
     return MaterialApp(
-      home: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              child: TextButton(
-                  onPressed: () async {
-                    showLoadingDialog(
-                        context,
-                        LoadingData(
-                            type: DialogType.error,
-                            text: "errore",
-                            style: const TextStyle(color: Colors.black87),
-                            asset: Image.asset(
-                              "assets/images/logo.png",
-                              package: "ui_mixins",
-                            )));
-
-                    await Future.delayed(const Duration(seconds: 3));
-                    Navigator.pop(context);
-                    showLoadingDialog(
-                        context,
-                        LoadingData(
-                            text: "done",
-                            type: DialogType.success,
-                            style: const TextStyle(color: Colors.black87),
-                            asset: Image.asset(
-                              "assets/images/logo.png",
-                              package: "ui_mixins",
-                            )));
-                    await Future.delayed(const Duration(seconds: 3));
-                    Navigator.pop(context);
-                  },
-                  child: AnimatedWidget()),
-            )
-          ],
-        ),
-      ),
+      routes: NavigableRouter.instance.routes,
+      home: const RouteView(),
     );
   }
-}
 
-class AnimatedWidget extends StatefulWidget {
-  const AnimatedWidget({Key? key}) : super(key: key);
+  void _setRoutesForScopes() {
 
-  @override
-  State<AnimatedWidget> createState() => _AnimatedWidgetState();
-}
+    NavigableRouter.instance.setRoutes({
+      "/loadble_view": const LoadableView(),
+      "/route_view": const RouteView(),
+    }, RouteScopeTest1());
 
-class _AnimatedWidgetState extends State<AnimatedWidget>
-    with TickerProviderStateMixin, Transitionable, Sizeable {
-  late AnimationController _controller;
-
-  late Animation<double> _animation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      duration: const Duration(seconds: 3),
-      vsync: this,
-    )..forward();
-    _animation = Tween<double>(begin: 1, end: 60).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInCubic,
-    ));
+    NavigableRouter.instance.setRoutes({
+      "/loadble_view": const LoadableView(),
+      "/route_view2": const RouteView2(),
+    }, RouteScopeTest2());
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return transitionBuilder(
-        context,
-        _animation,
-        Container(
-            color: Colors.red, width: width(context), height: height(context)));
-  }
 }
+
+
+
+
