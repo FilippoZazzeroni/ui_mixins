@@ -8,6 +8,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.8.2"
+  bloc_eazy:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: ab56e693843a979db98e7623c0ee2c36bf872d60
+      url: "https://github.com/FilippoZazzeroni/bloc_eazy.git"
+    source: git
+    version: "1.0.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -43,13 +52,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.4"
   fake_async:
     dependency: transitive
     description:
@@ -169,7 +171,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.0.0"
+    version: "0.1.1"
   vector_math:
     dependency: transitive
     description:

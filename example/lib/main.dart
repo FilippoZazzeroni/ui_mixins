@@ -1,10 +1,12 @@
+import 'package:example/models/shared_bloc/shared_bloc.dart';
 import 'package:example/ui/views/loadble_view.dart';
-import 'package:example/ui/views/route_view/route_scopes_test.dart';
 import 'package:example/ui/views/route_view/route_view.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_mixins/export.dart';
+import 'package:bloc_eazy/export.dart';
 
 void main() {
+  BlocProvider().create(SharedBloc());
   runApp(const _App());
 }
 
@@ -19,21 +21,17 @@ class _App extends StatelessWidget {
 
     return MaterialApp(
       routes: NavigableRouter.instance.routes,
-      home: const RouteView(),
+      initialRoute: "/",
     );
   }
 
   void _setRoutesForScopes() {
 
     NavigableRouter.instance.setRoutes({
-      "/loadble_view": const LoadableView(),
-      "/route_view": const RouteView(),
-    }, RouteScopeTest1());
-
-    NavigableRouter.instance.setRoutes({
-      "/loadble_view": const LoadableView(),
-      "/route_view2": const RouteView2(),
-    }, RouteScopeTest2());
+      "/": (context) => const RouteView(),
+      "/route_view2": (context) => const RouteView(),
+      "/loadble_view": (context) => const LoadableView(),
+    });
   }
 
 }

@@ -1,6 +1,9 @@
 
 
-import 'package:example/ui/views/route_view/route_scopes_test.dart';
+import 'package:bloc_eazy/export.dart';
+import 'package:example/models/shared_bloc/shared_bloc.dart';
+import 'package:example/models/shared_bloc/shared_bloc_state.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_mixins/export.dart';
 
@@ -10,22 +13,31 @@ class RouteView extends StatelessWidget with Navigable {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Center(
-      child: Column(
+      child: BlocBuilder<SharedBloc, SharedBlocState>(
+        builder: (context, snapshot) {
 
-        children: [
-          TextButton(onPressed: () {
-            pushNamedRoute(context, route: "/loadble_view", scope: RouteScopeTest1());
-          }, child: const Text("Go to loadble view")),
-          TextButton(onPressed: () {
-            pushNamedRoute(context, route: "/route_view", scope: RouteScopeTest1());
-          }, child: const Text("Go to route view")),
-          TextButton(onPressed: () {
-            pushNamedRoute(context, route: "/loadble_view", scope: RouteScopeTest2());
-          }, child: const Text("Go to loadble view")),
-          TextButton(onPressed: () {
-            pushNamedRoute(context, route: "/route_view2", scope: RouteScopeTest2());
-          }, child: const Text("Go to route view"))
-        ],
+          if (kDebugMode) {
+            print(snapshot.data);
+          }
+
+          return Column(
+
+            children: [
+              TextButton(onPressed: () {
+                pushNamedRoute(context, route: "/loadble_view");
+              }, child: const Text("Go to loadble view")),
+              TextButton(onPressed: () {
+                pushNamedRoute(context, route: "/");
+              }, child: const Text("Go to route view")),
+              TextButton(onPressed: () {
+                pushNamedRoute(context, route: "/loadble_view");
+              }, child: const Text("Go to loadble view")),
+              TextButton(onPressed: () {
+                pushNamedRoute(context, route: "/route_view2");
+              }, child: const Text("Go to route view"))
+            ],
+          );
+        }
       ),
     ));
   }
@@ -37,13 +49,22 @@ class RouteView2 extends StatelessWidget with Navigable {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Center(
-      child: Column(
+      child: BlocBuilder<SharedBloc, SharedBlocState>(
+        builder: (context, snapshot) {
 
-        children: [
-          TextButton(onPressed: () {
-            pushNamedRoute(context, route: "/route_view", scope: RouteScopeTest1());
-          }, child: const Text("You are in the Route View 2 Screen")),
-        ],
+          if (kDebugMode) {
+            print(snapshot.data);
+          }
+
+          return Column(
+
+            children: [
+              TextButton(onPressed: () {
+                pushNamedRoute(context, route: "/");
+              }, child: const Text("You are in the Route View 2 Screen")),
+            ],
+          );
+        }
       ),
     ));
   }
