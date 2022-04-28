@@ -21,7 +21,16 @@ mixin Navigable {
     } else {
       throw FlutterError("The route passed is not existing. Remember to set the routes via the NavigableRouter.instance.setRoute() and to pass them into the MaterialApp with NavigableRouter.instance.routes");
     }
+  }
 
+  void pushNamedRouteOnTopAndReplaceAllRoute(BuildContext context, {required String route}) {
+    final routeFunction = NavigableRouter.instance.getRouteFunction(route);
+
+    if (routeFunction != null) {
+      Navigator.pushReplacementNamed(context, route);
+    } else {
+      throw FlutterError("The route passed is not existing. Remember to set the routes via the NavigableRouter.instance.setRoute() and to pass them into the MaterialApp with NavigableRouter.instance.routes");
+    }
   }
 
   void pop(BuildContext context) {
