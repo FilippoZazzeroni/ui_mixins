@@ -13,7 +13,7 @@ class DialogFactory {
       case DialogType.loading:
         return const LoadingDialog();
       case DialogType.success:
-        return SuccessfulDialog(asset: data.asset);
+        return SuccessfulDialog(asset: data.asset!);
       case DialogType.error:
         return ErrorDialog(data: data);
     }

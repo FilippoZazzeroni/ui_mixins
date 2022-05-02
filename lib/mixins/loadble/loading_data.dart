@@ -11,7 +11,7 @@ class LoadingData {
 
   final TextStyle style;
 
-  final Image asset;
+  final Image? asset;
 
   final DialogType type;
 
