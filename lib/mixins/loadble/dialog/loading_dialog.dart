@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ui_mixins/export.dart';
 
-class LoadingDialog extends StatelessWidget {
+class LoadingDialog extends StatelessWidget with Navigable {
   const LoadingDialog({Key? key}) : super(key: key);
 
   @override

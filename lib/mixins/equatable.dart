@@ -24,7 +24,6 @@ abstract class Equatable {
   bool assignEqualityExpression(Equatable other);
 
   @override
-  // TODO: implement hashCode
   int get hashCode => RandomInt.randomInt();
 }
 
