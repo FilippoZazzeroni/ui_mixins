@@ -20,14 +20,10 @@ class LoadableView extends StatelessWidget with Loadable {
                     showLoadingDialog(
                         context,
                         LoadingData(
-                            type: DialogType.error,
+                            type: DialogType.loading,
                             text: "errore",
                             style: const TextStyle(color: Colors.black87),
-                            asset: Image.asset(
-                              "assets/images/logo.png",
-                              package: "ui_mixins",
-                            )));
-
+                            ));
                     await Future.delayed(const Duration(seconds: 3));
                     Navigator.pop(context);
                     showLoadingDialog(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_mixins/export.dart';
 
-class LoadingDialog extends StatelessWidget with Navigable {
+class LoadingDialog extends StatelessWidget with Navigable, Sizeable {
   const LoadingDialog({Key? key}) : super(key: key);
 
   @override
@@ -44,15 +44,30 @@ class LoadingDialog extends StatelessWidget with Navigable {
                 BoxShadow(color: Colors.black12, blurRadius: 5.0)
               ]),
           height: 200,
-          width: MediaQuery.of(context).size.width,
-          child: Center(
+          width: width(context),
+          child: Material(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: children,
+              children: [
+                buildPopButton(context),
+                Expanded(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: children,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10.0,)
+              ],
             ),
           ),
         ),
       ),
     ]));
+  }
+
+  /// It builds pop button. It is empty for the loading dialog because is not needed.
+  Widget buildPopButton(BuildContext context) {
+    return const SizedBox();
   }
 }

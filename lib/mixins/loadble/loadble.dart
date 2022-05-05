@@ -8,19 +8,19 @@ import 'package:ui_mixins/mixins/loadble/loading_data.dart';
 
 mixin Loadable {
   /// Shows the loading dialog by presenting a dialog as a modal sheet with spinning indicator.
-  void showLoadingDialog(BuildContext context, LoadingData data) =>
+  Future showLoadingDialog(BuildContext context, LoadingData data) =>
       _createLoadingDialog(context, data);
 
   void dismiss(BuildContext context) {
     Navigator.pop(context);
   }
 
-  void _createLoadingDialog(BuildContext context, LoadingData data) {
+  Future _createLoadingDialog(BuildContext context, LoadingData data) {
 
     final factory = DialogFactory();
     final dialog = factory.create(data);
 
-    showGeneralDialog(
+    return showGeneralDialog(
       context: context,
       transitionDuration: const Duration(milliseconds: 250),
       transitionBuilder: (context, animation, _, child) =>

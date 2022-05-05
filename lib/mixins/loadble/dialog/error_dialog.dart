@@ -15,7 +15,20 @@ class ErrorDialog extends LoadingDialog {
     return [
       const Icon(Icons.error, color: Colors.redAccent, size: 40,),
       const SizedBox(height: 20,),
-      Material(child: Text(data.text, style: data.style,))
+      Text(data.text, style: data.style,)
     ];
+  }
+
+  @override
+  Widget buildPopButton(BuildContext context) {
+    return Row(
+      children: [
+        const Expanded(child: SizedBox()),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: IconButton(onPressed: () => pop(context), icon: const Icon(Icons.clear, color: Colors.black,)),
+        )
+      ],
+    );
   }
 }
