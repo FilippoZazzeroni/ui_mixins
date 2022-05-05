@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ui_mixins/mixins/loadble/loading_data.dart';
-import 'package:ui_mixins/mixins/loadble/loading_dialog.dart';
+import 'package:ui_mixins/mixins/loadble/dialog/loading_dialog.dart';
 
 class ErrorDialog extends LoadingDialog {
 

@@ -1,7 +1,7 @@
 
-import 'package:ui_mixins/mixins/loadble/error_dialog.dart';
-import 'package:ui_mixins/mixins/loadble/loading_dialog.dart';
-import 'package:ui_mixins/mixins/loadble/success_dialog.dart';
+import 'package:ui_mixins/mixins/loadble/dialog/error_dialog.dart';
+import 'package:ui_mixins/mixins/loadble/dialog/loading_dialog.dart';
+import 'package:ui_mixins/mixins/loadble/dialog/success_dialog.dart';
 import 'package:ui_mixins/mixins/loadble/loading_data.dart';
 
 import 'dialog_type.dart';

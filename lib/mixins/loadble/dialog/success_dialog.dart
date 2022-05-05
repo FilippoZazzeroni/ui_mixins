@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:ui_mixins/mixins/loadble/loading_dialog.dart';
+import 'package:ui_mixins/mixins/loadble/dialog/loading_dialog.dart';
 
 
 class SuccessfulDialog extends LoadingDialog {
