@@ -12,6 +12,12 @@ mixin Navigable {
     }));
   }
 
+  void pushAndReplaceAllRoute(BuildContext context,  {required Widget page}) {
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+      return page;
+    }));
+  }
+
   void pushNamedRoute(BuildContext context, {required String route}) {
 
     final routeFunction = NavigableRouter.instance.getRouteFunction(route);
