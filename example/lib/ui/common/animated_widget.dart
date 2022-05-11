@@ -34,7 +34,11 @@ class _AnimatedWidgetTestState extends State<AnimatedWidgetTest>
     return transitionBuilder(
         context,
         _animation,
-        Container(
-            color: Colors.red, width: width(context), height: height(context)));
+        Column(
+          children: [
+            Container(
+                color: Colors.red, width: width(context), height: height(context)),
+          ],
+        ));
   }
 }

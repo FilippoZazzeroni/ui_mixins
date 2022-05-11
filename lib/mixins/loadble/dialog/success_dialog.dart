@@ -19,4 +19,17 @@ class SuccessfulDialog extends LoadingDialog {
       createLoadingText("Done", style: const TextStyle(color: Colors.black))
     ];
   }
+
+  @override
+  Widget buildPopButton(BuildContext context) {
+    return Row(
+      children: [
+        const Expanded(child: SizedBox()),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: IconButton(onPressed: () => pop(context), icon: const Icon(Icons.clear, color: Colors.black,)),
+        )
+      ],
+    );
+  }
 }

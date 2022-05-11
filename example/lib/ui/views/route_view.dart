@@ -30,11 +30,8 @@ class RouteView extends StatelessWidget with Navigable {
                 pushNamedRoute(context, route: "/");
               }, child: const Text("Go to route view")),
               TextButton(onPressed: () {
-                pushNamedRoute(context, route: "/loadble_view");
-              }, child: const Text("Go to loadble view")),
-              TextButton(onPressed: () {
-                pushNamedRoute(context, route: "/route_view2");
-              }, child: const Text("Go to route view"))
+                pushNamedRoute(context, route: "/animated_view");
+              }, child: const Text("Go to animated view")),
             ],
           );
         }

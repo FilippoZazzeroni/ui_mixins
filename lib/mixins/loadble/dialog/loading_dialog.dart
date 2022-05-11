@@ -31,21 +31,22 @@ class LoadingDialog extends StatelessWidget with Navigable, Sizeable {
 
   Widget _createHeaderView(BuildContext context,
       {required List<Widget> children}) {
-    return SafeArea(
-        child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-      Align(
-        alignment: Alignment.bottomCenter,
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 8.0),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20.0),
-              boxShadow: const [
-                BoxShadow(color: Colors.black12, blurRadius: 5.0)
-              ]),
-          height: 200,
-          width: width(context),
-          child: Material(
+    return Material(
+      color: Colors.transparent,
+      child: SafeArea(
+          child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 8.0),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20.0),
+                boxShadow: const [
+                  BoxShadow(color: Colors.black12, blurRadius: 5.0)
+                ]),
+            height: 200,
+            width: width(context),
             child: Column(
               children: [
                 buildPopButton(context),
@@ -62,8 +63,8 @@ class LoadingDialog extends StatelessWidget with Navigable, Sizeable {
             ),
           ),
         ),
-      ),
-    ]));
+      ])),
+    );
   }
 
   /// It builds pop button. It is empty for the loading dialog because is not needed.

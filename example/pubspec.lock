@@ -13,7 +13,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: ab56e693843a979db98e7623c0ee2c36bf872d60
+      resolved-ref: "3c8166eb4eec8c27f78f0f07ae82c57c9a2ed1e1"
       url: "https://github.com/FilippoZazzeroni/bloc_eazy.git"
     source: git
     version: "1.0.0"
