@@ -13,9 +13,7 @@ mixin Navigable {
   }
 
   void pushAndReplaceAllRoute(BuildContext context,  {required Widget page}) {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-      return page;
-    }));
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => page), (route) => false);
   }
 
   void pushNamedRoute(BuildContext context, {required String route}) {
